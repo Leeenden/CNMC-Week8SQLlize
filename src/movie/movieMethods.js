@@ -29,7 +29,7 @@ exports.updateMovie = async (movieObj) => {
         //await model update one method
         //state new update first, current update last
         await Movie.update({ 
-            title: "BatMan Updated" }, 
+            title: movieObj.newtitle }, 
         { where: { 
             title: movieObj.title 
         } 

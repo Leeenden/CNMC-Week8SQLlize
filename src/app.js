@@ -17,7 +17,7 @@ const app = async (yargsObj) => {
             // console.log("List function completed.");
         } else if (yargsObj.update){
             //state new/update first 
-            await updateMovie({newtitle: yargsObj.newtitle}, {title: yargsObj.title});
+            await updateMovie({newtitle: yargsObj.newtitle, title: yargsObj.title});
               //log the changes
         } else if (yargsObj.delete){
             // delete all movies
