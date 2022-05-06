@@ -1,15 +1,24 @@
 const yargs = require("yargs");
 const { sequelize } = require("./db/connection");
-const { addMovie, listMovies, updateMovie, deleteMovie } = require("./movie/movieMethods");
-const Movie = require("./movie/movieTable");
 // imports for crud functions
+const { addMovie, listMovies, updateMovie, deleteMovie } = require("./movie/movieMethods");
+// import tables 
+const Movie = require("./movie/movieTable");
+const User = require("./movie/userTable");
+// Associations
 
+// Users
+User.hasMany(Movie);
+// Movie
+Movie.belongsTo(User);
+
+// main CLI function
 const app = async (yargsObj) => {
     try {
         await sequelize.sync();
         if (yargsObj.add) {
             // add movie to database
-            await addMovie({title: yargsObj.title, actor: yargsObj.actor});
+            await addMovie({title: yargsObj.title, actor: yargsObj.actor, rating: yargsObj.rating}, {userName: yargsObj.userName});
             console.log(`Success, added ${yargsObj.title} to the db. `);
         } else if (yargsObj.list) {
             //list all movies

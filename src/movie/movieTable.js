@@ -5,18 +5,30 @@ const { sequelize } = require("../db/connection");
 //same with primary and foreign keys, methods can do it for us. 
 
 const Movie = sequelize.define("Movie", {
+    // id: {
+    //     type: DataTypes.INTEGER,
+    //     primaryKey: true
+    // },
     title: {
         type: DataTypes.STRING,
         // allowNull = default true
         allowNull: false,
         // unique = default false 
-        unique: true,
+        unique: true
     },
     actor: {
         //sets data type to only string
         type: DataTypes.STRING,
-        defaultValue: "Not Specified",
+        defaultValue: "Not Specified"
+    },
+    rating: {
+        //sets data type to only string
+        type: DataTypes.STRING,
+        defaultValue: "Not Specified"
     }
+    
 });
+
+
 
 module.exports = Movie;

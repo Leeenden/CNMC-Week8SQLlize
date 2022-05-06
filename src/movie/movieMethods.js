@@ -1,23 +1,26 @@
 const { sequelize } = require("../db/connection");
 const Movie = require("./movieTable");
+const User = require("./userTable");
 
 // add movie function
-exports.addMovie = async (movieObj) => {
+exports.addMovie = async (movieObj, userObj ) => {
     //create one entry in the db
     try {
         //await model create method 
         await Movie.create(movieObj);
+        await User.create(userObj);
         // log the intermmittent message
-        console.log("Success, creating new entry");
+        console.log("Success, creating new entry.");
     } catch (error) {
         console.log(error)
     }
 };
-// list one movie function
+// list all movies function
 exports.listMovies = async () => {
-    // find One movie object from db 
+    // find movie object from db 
     try {
-        return await Movie.findAll();
+        console.log(await Movie.findAll()); 
+        console.log(await User.findAll());
         } catch (error) {
         console.log(error);
     }
