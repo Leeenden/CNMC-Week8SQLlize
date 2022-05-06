@@ -50,5 +50,7 @@ app(yargs.argv);
 // USING findALL = node src/app.js --list
 
 // update working out
-// USING fixed variables = node src/app.js --update --newTitle="Kung Fu Panda Updated" --title="Kung Fu Panda" 
-// USING one fixed, one variable = node src/app.js --update --newtitle="AntMan Updated" --title="AntMan"
+// --update --newtitle: yargsObj.newtitle, title: yargsObj.title
+
+// add user with linked table 
+// node src/app.js --add --title="Title" --actor="Actor" --rating="number between 1 and 10" --userName="username"
